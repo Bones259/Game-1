@@ -53,6 +53,8 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\MovingObject.cs" />
      <Compile Include="Assets\Scripts\Restart.cs" />
+     <Compile Include="Assets\Teleportation Pad\CustomTeleporter.cs" />
+     <None Include="Assets\Teleportation Pad\README.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
