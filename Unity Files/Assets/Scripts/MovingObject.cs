@@ -3,20 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MovingObject : MonoBehaviour {
-	//Floats for Variables
-	public float min=2f;
-	public float max=3f;
-	// Use this for initialization
-	void Start () {
-		min=transform.position.x;
-		//Change Number on next line to change distance covered
-		//Each tile in game equals around 2.5
-		max=transform.position.x+10;
+	//speed at which the object moves back and forth
+	public float speed = 3;
+	//direction in which the object moves. 1 is for right and -1 for left
+	float dir = 1;
+
+	void Update(){
+		//move the object at a rate of 1*speed unit/s along the x-axis
+		transform.Translate(new Vector3(1, 0, 0) * Time.deltaTime * dir * speed);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		//Change Number next to Time.time to increase speed
-		transform.position =new Vector3(Mathf.PingPong(Time.time*2,max-min)+min, transform.position.y, transform.position.z);
+
+	//check if the object hits the other two cubes
+	void OnTriggerEnter(Collider coll){
+		//check if the object enter into a trigger with objects named Finish
+		if(coll.gameObject.tag=="Wall"){
+			//reverse the current direction 
+			dir *= -1;
+		}
 	}
 }
